@@ -12,8 +12,8 @@
         </thead>
         <tbody>
         <tr th:each="usuario: ${lista}">
-            <!-- Luego poner que muestre el Id tambien.-->
-			<td th:text="${usuario.firstName}"></td>
+            <td th:text="${usuario.usuarioId}"></td>
+            <td th:text="${usuario.firstName}"></td>
 			<td th:text="${usuario.lastName}"></td>
 			<td th:text="${usuario.username}"></td>
 			<td th:text="${usuario.email}"></td>

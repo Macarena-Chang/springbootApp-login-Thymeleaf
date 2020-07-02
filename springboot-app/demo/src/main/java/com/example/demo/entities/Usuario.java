@@ -18,7 +18,7 @@ public class Usuario implements Serializable {
     @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "usuario_id")
     private Long usuarioId;
-
+    
     @Column
     private String firstName;
     @Column
@@ -129,11 +129,11 @@ public class Usuario implements Serializable {
             return true;
         }
 
-        public Long getusuarioId() {
+        public Long getUsuarioId() {
             return  usuarioId;
         }
 
-        public void setusuarioId(Long usuarioId) {
+        public void setUsuarioId(Long usuarioId) {
             this. usuarioId =  usuarioId;
         }
 
