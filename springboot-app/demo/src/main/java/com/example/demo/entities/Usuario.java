@@ -3,7 +3,10 @@ package com.example.demo.entities;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Usuario implements Serializable {
@@ -19,15 +22,26 @@ public class Usuario implements Serializable {
     @Column(name = "usuario_id")
     private Long usuarioId;
     
+    //recordar agregar dependencia hibernate-validator para usar el @NotBlank
     @Column
+    @NotBlank
+    @Size(min=3,max=30, message="No se ajusta al tamaño requerido")
     private String firstName;
+
     @Column
+    @NotBlank
     private String lastName;
+    @NotBlank
     @Column(unique = true)
     private String email;
+   
     @Column(unique = true)
+    @NotBlank
+    @Size(min=3,max=30, message="No se ajusta al tamaño requerido")
     private String username;
+
     @Column
+    @NotBlank
     private String password;
 
     //transient --> se va a omitir.
