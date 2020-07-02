@@ -11,12 +11,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Macarena</td>
-            <td>Chang</td>
-            <td>macarenaUsername</td>
-            <td>Macarena@email.com</td>
+        <tr th:each="usuario: ${lista}">
+            <!-- Luego poner que muestre el Id tambien.-->
+			<td th:text="${usuario.firstName}"></td>
+			<td th:text="${usuario.lastName}"></td>
+			<td th:text="${usuario.username}"></td>
+			<td th:text="${usuario.email}"></td>
             <td>
                 <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
             </td>

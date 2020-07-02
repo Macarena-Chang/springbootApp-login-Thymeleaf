@@ -16,7 +16,8 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long id;
+    @Column(name = "usuario_id")
+    private Long usuarioId;
 
     @Column
     private String firstName;
@@ -48,16 +49,16 @@ public class Usuario implements Serializable {
 
         }
 
-    public Usuario(Long id) {
+    public Usuario(Long  usuarioId) {
         super();
-        this.id = id;
+        this. usuarioId =  usuarioId;
     }
     
 
         @Override
         public String toString() {
             return "Usuario [confirmPassword=" + confirmPassword + ", email=" + email + ", firstName=" + firstName
-                    + ", id=" + id + ", lastName=" + lastName + ", password=" + password + ", roles=" + roles
+                    + ", id=" +  usuarioId + ", lastName=" + lastName + ", password=" + password + ", roles=" + roles
                     + ", username=" + username + "]";
         }
 
@@ -68,7 +69,7 @@ public class Usuario implements Serializable {
             result = prime * result + ((confirmPassword == null) ? 0 : confirmPassword.hashCode());
             result = prime * result + ((email == null) ? 0 : email.hashCode());
             result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-            result = prime * result + ((id == null) ? 0 : id.hashCode());
+            result = prime * result + (( usuarioId == null) ? 0 : usuarioId.hashCode());
             result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
             result = prime * result + ((password == null) ? 0 : password.hashCode());
             result = prime * result + ((roles == null) ? 0 : roles.hashCode());
@@ -100,10 +101,10 @@ public class Usuario implements Serializable {
                     return false;
             } else if (!firstName.equals(other.firstName))
                 return false;
-            if (id == null) {
-                if (other.id != null)
+            if ( usuarioId == null) {
+                if (other. usuarioId != null)
                     return false;
-            } else if (!id.equals(other.id))
+            } else if (! usuarioId.equals(other.usuarioId))
                 return false;
             if (lastName == null) {
                 if (other.lastName != null)
@@ -126,6 +127,70 @@ public class Usuario implements Serializable {
             } else if (!username.equals(other.username))
                 return false;
             return true;
+        }
+
+        public Long getusuarioId() {
+            return  usuarioId;
+        }
+
+        public void setusuarioId(Long usuarioId) {
+            this. usuarioId =  usuarioId;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public void setFirstName(String firstName) {
+            this.firstName = firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+
+        public Set<Role> getRoles() {
+            return roles;
+        }
+
+        public void setRoles(Set<Role> roles) {
+            this.roles = roles;
+        }
+
+        public String getConfirmPassword() {
+            return confirmPassword;
+        }
+
+        public void setConfirmPassword(String confirmPassword) {
+            this.confirmPassword = confirmPassword;
         }
 
         
