@@ -40,7 +40,7 @@ public class Usuario implements Serializable {
 
     // Set: la diferencia con utilizar cualquier otro tipo de colecciones es q con el set obligamos a q no se repita ningun valor.
     //no admitira 2 veces el rol admin por ej.
-    private Set roles;
+    private Set<Role>  roles;
 
 
     //constructores
